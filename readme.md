@@ -4,8 +4,6 @@ A plugin for [Kirby 2 CMS](http://getkirby.com) that generates piwik analytics c
 
 ## Installation
 
-Put the `piwik` folder in `/site/plugins`.
-
 Copy or link the `piwik` directory to `site/plugins/` **or** use the [Kirby CLI](https://github.com/getkirby/cli):
 
 ```
