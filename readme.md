@@ -31,7 +31,18 @@ c::set('ka.piwik.apitoken', 'abcdefghijklmnopqrstuvwxyz');
 
 ## How to use it
 
+### Tracking
+
+use this right before closing `</body> tag`
+
 ```php
-<!-- use this right before closing </body> tag -->
-<?php echo piwik(); ?>
+<?= piwik(); ?>
+```
+
+### OptOut
+
+In your text file you can use it as follows:
+
+```
+(sitemap:)
 ```

@@ -1,0 +1,1 @@
+<iframe style="border: 0; height: <?= $height; ?>; width: <?= $width; ?>" src="//<?= $url; ?>/index.php?module=CustomOptOut&action=optOut&idSite=<?= $id; ?>&language=<?= $lang; ?>"></iframe>
