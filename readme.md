@@ -44,5 +44,5 @@ use this right before closing `</body> tag`
 In your text file you can use it as follows:
 
 ```
-(sitemap:)
+(piwikOptOut:)
 ```
