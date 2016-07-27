@@ -33,7 +33,7 @@ c::set('ka.piwik.apitoken', 'abcdefghijklmnopqrstuvwxyz');
 
 ### Tracking
 
-use this right before closing `</body> tag`
+use this right before closing `</body>` tag
 
 ```php
 <?= piwik(); ?>
