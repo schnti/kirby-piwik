@@ -44,7 +44,7 @@ function piwik()
 	}
 
 	// check if user is logged in
-	if (c::get('ka.piwik.trackingIfLoggedIn', true) && site()->user()) {
+	if (!c::get('ka.piwik.trackingIfLoggedIn', true) && site()->user()) {
 		return '';
 	}
 
