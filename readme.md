@@ -13,18 +13,20 @@ kirby plugin:install schnti/kirby-piwik
 ### Config Variables
 
 **Tracking**
-* ka.piwik.tracking: true / false (Default: false)
-* ka.piwik.url: 'stats.yourpage.com'
-* ka.piwik.id: 1 (replace with the page ID in your piwik installation)
+* ka.piwik.tracking: Boolean (enable tracking, default: false)
+* ka.piwik.trackingIfLoggedIn: Boolean (enable tracking when user is logged in, default: true)
+* ka.piwik.url: String (piwik endpoint)
+* ka.piwik.id: Int (page ID in your piwik installation)
 
 **Widget**
-* ka.piwik.widget: true / false (Default: false)
-* ka.piwik.apitoken: Your-Piwik-API Token
+* ka.piwik.widget: Boolean (show widget, default: false)
+* ka.piwik.apitoken: String (your piwik API token)
 
 ```php
 c::set('ka.piwik.url', 'stats.yourpage.com');
 c::set('ka.piwik.id', 28);
 c::set('ka.piwik.tracking', true);
+c::set('ka.piwik.trackingIfLoggedIn', true);
 c::set('ka.piwik.widget', true);
 c::set('ka.piwik.apitoken', 'abcdefghijklmnopqrstuvwxyz');
 ```

@@ -38,7 +38,13 @@ $kirby->set('tag', 'piwikOptOut', array(
 function piwik()
 {
 
+	// check if enabled and config is valid
 	if (!c::get('ka.piwik.tracking', false) || !c::get('ka.piwik.url') || !c::get('ka.piwik.id')) {
+		return '';
+	}
+
+	// check if user is logged in
+	if (c::get('ka.piwik.trackingIfLoggedIn', true) && site()->user()) {
 		return '';
 	}
 
