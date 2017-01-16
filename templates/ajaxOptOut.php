@@ -6,47 +6,5 @@
 </label>
 
 <script>
-    window.onload = function () {
-        var checkbox = $('#piwikOptOutCheckbox');
-        var piwikOptOutText = $('#piwikOptOutText');
-
-        var piwikOptOutOn = '<?= l::get('ka.piwik.trackOn'); ?>';
-        var piwikOptOutOff = '<?= l::get('ka.piwik.trackOff'); ?>';
-
-        ajax('isTracked', function (response) {
-            showText(response.value);
-            checkbox.prop('checked', response.value);
-        });
-
-        checkbox.click(function () {
-            if (this.checked == true) {
-                ajax('doTrack');
-            } else {
-                ajax('doIgnore');
-            }
-
-            showText(this.checked);
-        });
-
-        function showText(state) {
-            if (state == true) {
-                piwikOptOutText.html(piwikOptOutOn);
-            } else {
-                piwikOptOutText.html(piwikOptOutOff);
-            }
-        }
-
-        function ajax(api, ok) {
-            $.ajax({
-                url: '//<?= $url; ?>/index.php?module=API&method=AjaxOptOut.' + api + '&format=json',
-                jsonp: 'callback',
-                dataType: 'jsonp',
-                contentType: 'application/json',
-                success: ok,
-                error: function (error) {
-                    console.log(error);
-                }
-            });
-        }
-    };
+    window.onload=function(){function e(a){1==a?b.html(c):b.html(d)}function f(a,b){$.ajax({url:"//<?= $url; ?>/index.php?module=API&method=AjaxOptOut."+a+"&format=json",jsonp:"callback",dataType:"jsonp",contentType:"application/json",success:b,error:function(a){console.log(a)}})}var a=$("#piwikOptOutCheckbox"),b=$("#piwikOptOutText"),c="<?= l::get('ka.piwik.trackOn'); ?>",d="<?= l::get('ka.piwik.trackOff'); ?>";f("isTracked",function(b){e(b.value),a.prop("checked",b.value)}),a.click(function(){f(1==this.checked?"doTrack":"doIgnore"),e(this.checked)})};
 </script>
