@@ -22,6 +22,9 @@ kirby plugin:install schnti/kirby-piwik
 * ka.piwik.widget: Boolean (show widget, default: false)
 * ka.piwik.apitoken: String (your piwik API token)
 
+**OptOut**
+* ka.piwik.language: String (language code, default: de)
+
 ```php
 c::set('ka.piwik.url', 'stats.yourpage.com');
 c::set('ka.piwik.id', 28);
@@ -29,6 +32,7 @@ c::set('ka.piwik.tracking', true);
 c::set('ka.piwik.trackingIfLoggedIn', true);
 c::set('ka.piwik.widget', true);
 c::set('ka.piwik.apitoken', 'abcdefghijklmnopqrstuvwxyz');
+c::set('ka.piwik.language', 'de');
 ```
 
 ## How to use it
@@ -45,6 +49,20 @@ use this right before closing `</body>` tag
 
 In your text file you can use it as follows:
 
+
+#### iFrame
 ```
 (piwikOptOut:)
 ```
+
+*You need the Piwik [Custom Opt Out](https://plugins.piwik.org/CustomOptOut) Plugin*
+
+or
+
+#### AJAX (Responsive)
+
+```
+(piwikAjaxOptOut:)
+```
+
+*You need the Piwik [Ajax Opt Out](https://plugins.piwik.org/AjaxOptOut) Plugin*

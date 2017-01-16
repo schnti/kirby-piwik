@@ -35,6 +35,28 @@ $kirby->set('tag', 'piwikOptOut', array(
 	}
 ));
 
+$kirby->set('tag', 'piwikAjaxOptOut', array(
+	'attr' => array(),
+	'html' => function ($tag) {
+
+		if (!c::get('ka.piwik.tracking', false) || !c::get('ka.piwik.url')) {
+			return '';
+		}
+
+		loadTranslation();
+
+		$data = array(
+			'url' => c::get('ka.piwik.url')
+		);
+
+		if (isset($_SERVER["HTTP_DNT"])) {
+			return l::get('ka.piwik.doNotTrack');
+		} else {
+			return tpl::load(__DIR__ . DS . 'templates/ajaxOptOut.php', $data);
+		}
+	}
+));
+
 function piwik()
 {
 
@@ -55,4 +77,23 @@ function piwik()
 
 	// Return template HTML
 	return tpl::load(__DIR__ . DS . 'templates/tracking.php', $data);
+}
+
+function loadTranslation()
+{
+
+	if (defined('KIRBY')) {
+		$site = kirby()->site();
+		$code = $site->multilang() ? $site->language()->code() : c::get('ka.piwik.language', 'de');
+
+		try {
+			include_once __DIR__ . DS . 'languages' . DS . $code . '.php';
+		} catch (ErrorException $e) {
+			try {
+				include_once __DIR__ . DS . 'languages' . DS . 'de' . '.php';
+			} catch (ErrorException $e) {
+				throw new Exception("Uniform does not have a translation for the language '$code'.");
+			}
+		}
+	}
 }
