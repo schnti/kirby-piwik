@@ -9,8 +9,14 @@ $kirby->set('tag', 'piwikOptOut', array(
 	),
 	'html' => function ($tag) {
 
+		loadTranslation();
+
+		if (!c::get('ka.piwik.tracking', false)) {
+			return (c::get('debug', false)) ? l::get('ka.piwik.pluginDisabled') : '';
+		}
+
 		if (!c::get('ka.piwik.url') || !c::get('ka.piwik.id')) {
-			return '';
+			return l::get('ka.piwik.missingConfig');
 		}
 
 		$width = $tag->attr('width');
@@ -39,11 +45,15 @@ $kirby->set('tag', 'piwikAjaxOptOut', array(
 	'attr' => array(),
 	'html' => function ($tag) {
 
-		if (!c::get('ka.piwik.tracking', false) || !c::get('ka.piwik.url')) {
-			return '';
+		loadTranslation();
+
+		if (!c::get('ka.piwik.tracking', false)) {
+			return (c::get('debug', false)) ? l::get('ka.piwik.pluginDisabled') : '';
 		}
 
-		loadTranslation();
+		if (!c::get('ka.piwik.url') || !c::get('ka.piwik.id')) {
+			return l::get('ka.piwik.missingConfig');
+		}
 
 		$data = array(
 			'url' => c::get('ka.piwik.url')
