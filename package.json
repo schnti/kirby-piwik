@@ -3,7 +3,7 @@
   "description": "kirby piwik plugin and widget",
   "author": "Timo Schneider",
   "license": "MIT",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "type": "kirby-plugin",
   "repository": {
     "type": "git",

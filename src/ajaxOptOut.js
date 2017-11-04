@@ -30,7 +30,7 @@ window.onload = function () {
 
     function ajax(api, ok) {
         $.ajax({
-            url: '//<?= $url; ?>/index.php?module=API&method=AjaxOptOut.' + api + '&format=json',
+            url: '<?= $url; ?>/index.php?module=API&method=AjaxOptOut.' + api + '&format=json',
             jsonp: 'callback',
             dataType: 'jsonp',
             contentType: 'application/json',

@@ -26,7 +26,7 @@ kirby plugin:install schnti/kirby-piwik
 * ka.piwik.language: String (language code, default: de)
 
 ```php
-c::set('ka.piwik.url', 'stats.yourpage.com');
+c::set('ka.piwik.url', 'https://stats.yourpage.com');
 c::set('ka.piwik.id', 28);
 c::set('ka.piwik.tracking', true);
 c::set('ka.piwik.trackingIfLoggedIn', true);
