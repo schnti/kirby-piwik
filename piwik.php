@@ -30,10 +30,10 @@ $kirby->set('tag', 'piwikOptOut', array(
 		}
 
 		$data = array(
-			'url' => c::get('ka.piwik.url'),
-			'id' => c::get('ka.piwik.id'),
-			'lang' => site()->language(),
-			'width' => $width,
+			'url'    => c::get('ka.piwik.url'),
+			'id'     => c::get('ka.piwik.id'),
+			'lang'   => site()->language(),
+			'width'  => $width,
 			'height' => $height
 		);
 
@@ -82,7 +82,7 @@ function piwik()
 
 	$data = array(
 		'url' => c::get('ka.piwik.url'),
-		'id' => c::get('ka.piwik.id')
+		'id'  => c::get('ka.piwik.id')
 	);
 
 	// Return template HTML
