@@ -1,4 +1,4 @@
-# Piwik plugin
+# Matomo plugin
 
 A plugin for [Kirby 2 CMS](http://getkirby.com) that generates piwik analytics code to use in your templates.
 
